@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+  .font-cinzel {
+    font-family: 'Cinzel', serif;
+  }
+  .font-amiri {
+    font-family: 'Amiri', serif;
+  }
+  .font-arabic {
+    font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  }
+  .font-caveat {
+    font-family: 'Caveat', cursive;
+  }
+}
+
+/* Vintage Paper & Ink Aesthetics */
+.vintage-paper-texture {
+  background-color: #ede2c9;
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, rgba(255, 250, 240, 0.4) 0%, rgba(200, 175, 140, 0.35) 75%, rgba(135, 105, 70, 0.5) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(160, 130, 95, 0.12) 32px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  box-shadow: 
+    0 0 50px rgba(0, 0, 0, 0.95),
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    inset 0 0 45px rgba(115, 80, 45, 0.4),
+    inset 0 0 15px rgba(70, 45, 20, 0.3);
+}
+
+/* Vintage paper deckled edge mask */
+.deckled-edges {
+  clip-path: polygon(
+    0% 0.5%, 1.5% 0%, 3.5% 0.8%, 6% 0.2%, 10% 0.7%, 14% 0.1%, 19% 0.6%, 24% 0.3%, 30% 0.8%, 35% 0.2%, 41% 0.7%, 48% 0.1%, 55% 0.8%, 62% 0.3%, 68% 0.7%, 75% 0.2%, 82% 0.8%, 88% 0.1%, 94% 0.7%, 98.5% 0.2%, 100% 0.8%,
+    99.6% 6%, 100% 12%, 99.4% 18%, 99.8% 26%, 99.3% 34%, 99.9% 42%, 99.4% 50%, 99.8% 58%, 99.3% 66%, 99.9% 74%, 99.4% 82%, 99.7% 90%, 99.4% 96%, 100% 99.3%,
+    98% 99.8%, 93% 99.2%, 87% 99.9%, 81% 99.3%, 74% 99.7%, 67% 99.1%, 60% 99.8%, 52% 99.3%, 45% 99.9%, 38% 99.2%, 31% 99.7%, 24% 99.3%, 17% 99.8%, 10% 99.2%, 4% 99.7%, 0.8% 99.3%, 0% 98.5%,
+    0.6% 92%, 0.2% 84%, 0.7% 76%, 0.1% 68%, 0.8% 60%, 0.2% 52%, 0.7% 44%, 0.1% 36%, 0.6% 28%, 0.2% 20%, 0.7% 12%, 0.3% 5%
+  );
+}
+
+/* Writing ink feel */
+.vintage-ink-text {
+  color: #1a140f;
+  text-shadow: 0 0 1px rgba(26, 20, 15, 0.4);
+}
+
+/* Crumple animation classes */
+@keyframes crumpleDeform {
+  0% {
+    transform: perspective(1000px) scale(1) rotate(0deg);
+    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.8));
+  }
+  30% {
+    transform: perspective(1000px) scale(0.92) rotateX(12deg) rotateY(-8deg) rotateZ(2deg);
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9));
+  }
+  60% {
+    transform: perspective(1000px) scale(0.78) rotateX(25deg) rotateY(18deg) rotateZ(-6deg) skewX(4deg);
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.95)) brightness(0.9);
+  }
+  100% {
+    transform: perspective(1000px) scale(0.62) rotateX(35deg) rotateY(-22deg) rotateZ(8deg) skewY(-5deg);
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.98)) brightness(0.75);
+  }
+}
+
+.paper-crumpling {
+  animation: crumpleDeform 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Subtle breathing spotlight on pure black */
+.solitary-spotlight {
+  background: radial-gradient(circle at 50% 45%, rgba(245, 230, 205, 0.05) 0%, rgba(200, 160, 110, 0.02) 40%, rgba(0, 0, 0, 0.95) 80%, #000000 100%);
+}
+
+/* Cinematic film grain overlay */
+.cinematic-vignette {
+  background: radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.85) 90%, #000000 100%);
+}
+
+/* Custom scrollbar for paper writing area */
+.custom-paper-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-paper-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-paper-scroll::-webkit-scrollbar-thumb {
+  background: rgba(120, 95, 65, 0.25);
+  border-radius: 4px;
+}
+.custom-paper-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 95, 65, 0.45);
+}
